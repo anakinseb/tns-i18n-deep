@@ -1,4 +1,4 @@
-# tns-i18n
+# tns-i18n-deep
 This is a Nativescript plugin that implements i18n easily. It supports deep nested localized strings
 
 It adds `_L` function to global variable and XML files so you can use it anywhere in the app.
@@ -22,7 +22,7 @@ import Vue from 'nativescript-vue';
 import HelloWorld from './components/HelloWorld';
 
 //> You have to mention the default language code
-const i18n = require('tns-i18n')('en');
+const i18n = require('tns-i18n-deep')('en');
 
 // Uncommment the following to see NativeScript-Vue output logs
 //Vue.config.silent = false;
@@ -61,7 +61,7 @@ module.exports = {
     weekdays: {
         monday: "Monday",
         tuesday: "Tuesday",
-        tuesday: "Wednesday",
+        wednesday: "Wednesday",
     }
 };
 ```

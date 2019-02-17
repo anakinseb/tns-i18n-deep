@@ -1,6 +1,6 @@
 {
   "name": "tns-i18n-deep",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "description": "Nativescript internationalization module with deep string property access",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/kodaren/tns-i18n-deep/issues"
   },
-  "homepage": "https://github.com/burawi/tns-i18-deepn#readme",
+  "homepage": "https://github.com/kodaren/tns-i18n-deep#readme",
   "dependencies": {
     "str-render": "0.0.2"
   }
