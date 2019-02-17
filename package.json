@@ -1,0 +1,38 @@
+{
+  "name": "tns-i18n-deep",
+  "version": "0.0.10",
+  "description": "Nativescript internationalization module with deep string property access",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nativescript": {
+    "platforms": {
+      "ios": "1.0.0",
+      "android": "1.1.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodaren/tns-i18n-deep.git"
+  },
+  "keywords": [
+    "tns",
+    "nativescript",
+    "{N}",
+    "multilanguage",
+    "polyglot",
+    "internationalization",
+    "i18n",
+    "mobile"
+  ],
+  "author": "Jimmy Karlsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodaren/tns-i18n-deep/issues"
+  },
+  "homepage": "https://github.com/burawi/tns-i18-deepn#readme",
+  "dependencies": {
+    "str-render": "0.0.2"
+  }
+}
