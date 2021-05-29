@@ -7,26 +7,18 @@ module.exports = function(defaultLang) {
   var lang = platformModule.device.language;
   var defaults = require("~/i18n/" + defaultLang);
   var strings = {};
+  var _n = "@@";
   try {
     strings = require("~/i18n/" + lang);
   } catch (e) {}
 
   var _L = function(strName, ...replacers) {
-    var res;
-    if (strings.hasOwnProperty(strName)) {
-      res = strings[strName];
-    } else if (defaults.hasOwnProperty(strName)) {
-      res = defaults[strName];
-    } else {
-      res = deepAccessUsingString(strings, strName);
-      if (res === undefined) {
-        res = deepAccessUsingString(defaults, strName);
-      }
+    let res = _n + strName + _n; // will display a the string placeholder with some markers to notify the user that this string hasnt been set
+    if(getStringFromNamedKey(strings, strName)){
+      res = getStringFromNamedKey(strings, strName);
+    } else if(getStringFromNamedKey(defaults, strName)){ // fallback to the default language
+      res = getStringFromNamedKey(defaults, strName);
     }
-    if (res === undefined) {
-      res = '';
-    }
-
     return strRender(res, "%s", ...replacers);
   };
 
@@ -37,11 +29,17 @@ module.exports = function(defaultLang) {
   global._L = _L;
 };
 
-function deepAccessUsingString(obj, key) {
-  return key.split(".").reduce((nestedObject, key) => {
-    if (nestedObject && key in nestedObject) {
-      return nestedObject[key];
-    }
-    return undefined;
-  }, obj);
+function getStringFromNamedKey(obj, key) {
+  let tmp = key
+            .split(".")
+            .reduce( (nestedObject, key) => { 
+            if(typeof(nestedObject)==="object"){
+               if (nestedObject && key in nestedObject) {
+                  return nestedObject[key];        
+              }
+            }
+            return null;
+           
+            }, obj);
+	return (typeof(tmp) !== "object") ? tmp : null;
 }
